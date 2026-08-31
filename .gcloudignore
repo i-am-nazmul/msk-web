@@ -1,0 +1,31 @@
+# This file specifies files that are *not* uploaded to Google Cloud
+# using gcloud. It follows the same syntax as .gitignore, with the addition of
+# "#!include" directives (which insert the entries of the given .gitignore-style
+# file at that point).
+#
+# For more information, run:
+#   $ gcloud topic gcloudignore
+#
+.gcloudignore
+.git
+.gitignore
+
+# Legacy static site source (no longer deployed)
+src/
+
+# Next.js build cache (only .next/standalone is needed for deployment)
+.next/cache/
+
+# Dependencies (installed fresh on App Engine)
+node_modules/
+
+# Development files
+*.md
+.eslintrc*
+tsconfig.json
+next-env.d.ts
+
+# Environment
+.env.local
+.env.development.local
+.env.test.local
