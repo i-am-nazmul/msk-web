@@ -23,12 +23,14 @@ export default function DigitalServices() {
   }, []);
 
   return (
-    <section className="digital-section" id="digital-services" ref={sectionRef}>
-      <div className="container">
-        <div className="reveal">
-          <div className="section-label">Technology & Convenience</div>
-          <h2 className="section-title">Fully Digitalized Services</h2>
-          <p className="digital-intro">
+    <section className="py-20 md:py-[100px] bg-[var(--color-off-white)]" id="digital-services" ref={sectionRef}>
+      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px]">
+        <div className="opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
+          <div className="inline-block text-sm font-bold tracking-[0.15em] uppercase bg-clip-text text-transparent bg-[length:200%_auto] mb-3 relative pl-12 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-[2px] before:bg-[var(--color-gold)] bg-gradient-to-r from-[var(--color-gold)] via-[#fff3b0] to-[var(--color-gold)] animate-[gradientFlow_4s_linear_infinite]">
+            Technology & Convenience
+          </div>
+          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--color-navy)] leading-[1.2] mb-5">Fully Digitalized Services</h2>
+          <p className="text-base md:text-[1.1rem] text-[#4a5568] max-w-[720px] leading-[1.6] mb-12">
             In today&apos;s fast-paced world, we understand the importance of convenience and
             accessibility. MSK Investment Services is fully digitalized, offering a seamless and
             efficient experience for all our clients.
@@ -36,24 +38,25 @@ export default function DigitalServices() {
         </div>
 
         {/* Cards use spring-bounce scale pop entrance with staggered delays */}
-        <div className="digital-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {DIGITAL_SERVICES.map((service, i) => (
             <article
               key={service.title}
-              className={`digital-card reveal-scale reveal-delay-${i + 1}`}
+              className="group bg-white border border-[#e2e8f0] p-8 rounded-[12px] flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] opacity-0 scale-90 translate-y-6 [&.visible]:opacity-100 [&.visible]:scale-100 [&.visible]:translate-y-0 transition-[opacity,transform] duration-[650ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] reveal-scale"
+              style={{ transitionDelay: `${(i + 1) * 100}ms` }}
               role="article"
             >
-              <div className="digital-icon-wrap">
+              <div className="w-16 h-16 rounded-full bg-[var(--color-off-white)] flex justify-center items-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[rgba(248,177,27,0.15)]">
                 <Image src={service.icon} alt={service.title} width={38} height={38} style={{ objectFit: 'contain' }} />
               </div>
-              <div className="digital-card-title">{service.title}</div>
-              <p className="digital-card-desc">{service.desc}</p>
+              <div className="font-serif text-[1.15rem] font-bold text-[var(--color-navy)] mb-3">{service.title}</div>
+              <p className="text-[0.9rem] text-[#4a5568] leading-[1.6]">{service.desc}</p>
             </article>
           ))}
         </div>
 
-        <div className="digital-coverage reveal">
-          <p>
+        <div className="mt-12 md:mt-16 bg-[#eef1f6] p-6 md:p-8 rounded-[12px] text-center max-w-[900px] mx-auto border border-[#d1d5db] opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
+          <p className="text-[0.95rem] md:text-[1.05rem] text-[var(--color-navy)] leading-[1.6]">
             We have our client base spread across major cities of{' '}
             <strong>Chennai, Hyderabad, Bengaluru, Delhi, Mumbai, Kolkata, Bhubaneshwar, Jaipur</strong>{' '}
             and more. We also offer our services to{' '}

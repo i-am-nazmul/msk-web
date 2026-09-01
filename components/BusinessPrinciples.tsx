@@ -26,7 +26,7 @@ const PRINCIPLES = [
 ];
 
 // Alternate: even index slides from left, odd from right
-const revealClass = (i: number) => (i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+const revealClass = (i: number) => (i % 2 === 0 ? 'opacity-0 -translate-x-14 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] [&.visible]:opacity-100 [&.visible]:translate-x-0 reveal-left' : 'opacity-0 translate-x-14 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] [&.visible]:opacity-100 [&.visible]:translate-x-0 reveal-right');
 
 export default function BusinessPrinciples() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -41,29 +41,33 @@ export default function BusinessPrinciples() {
   }, []);
 
   return (
-    <section className="principles-section" id="business-principles" ref={sectionRef}>
-      <div className="container">
-        <div className="reveal">
-          <div className="section-label" style={{ color: 'var(--clr-gold)' }}>How We Operate</div>
-          <h2 className="section-title section-title--light">Business Principles</h2>
-          <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.6)' }}>
+    <section className="py-20 md:py-[100px] bg-[var(--color-navy)]" id="business-principles" ref={sectionRef}>
+      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px]">
+        <div className="opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
+          <div className="inline-block text-sm font-bold tracking-[0.15em] uppercase mb-3 relative pl-12 text-[var(--color-gold)] before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-[2px] before:bg-[var(--color-gold)]">
+            How We Operate
+          </div>
+          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-bold text-white leading-[1.2] mb-5">Business Principles</h2>
+          <p className="text-base md:text-[1.1rem] text-white/60 max-w-[640px] leading-[1.6] mb-12">
             The foundational values and philosophies that guide every decision we make.
           </p>
         </div>
 
-        <div className="principles-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           {PRINCIPLES.map((p, i) => (
             <article
               key={p.title}
               /* alternating slide-from-left / slide-from-right */
-              className={`principle-card ${revealClass(i)} reveal-delay-${(i % 2) + 1}`}
+              className={`group relative h-[420px] overflow-hidden flex items-end p-8 md:p-12 ${revealClass(i)}`}
+              style={{ transitionDelay: `${((i % 2) + 1) * 100}ms` }}
               role="article"
             >
-              <div className="principle-card-bg" style={{ backgroundImage: `url(${p.bg})` }} aria-hidden="true" />
-              <div className="principle-card-overlay" aria-hidden="true" />
-              <div className="principle-card-content">
-                <h2>{p.title}</h2>
-                <p>{p.text}</p>
+              <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[800ms] group-hover:scale-105 z-0" style={{ backgroundImage: `url(${p.bg})` }} aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-navy)] via-[var(--color-navy)]/80 to-transparent z-[1] transition-opacity duration-500 group-hover:opacity-90" aria-hidden="true" />
+              
+              <div className="relative z-[2] w-full max-w-[500px]">
+                <h2 className="font-serif text-[1.5rem] font-bold text-white mb-4 transition-all duration-400 group-hover:text-[var(--color-gold)] group-hover:-translate-y-2">{p.title}</h2>
+                <p className="text-[0.95rem] text-white/70 leading-[1.7] opacity-0 max-h-0 overflow-hidden transition-all duration-500 translate-y-4 group-hover:opacity-100 group-hover:max-h-[240px] group-hover:translate-y-0">{p.text}</p>
               </div>
             </article>
           ))}

@@ -39,28 +39,30 @@ export default function About() {
       },
       { threshold: 0.15 }
     );
-    sectionRef.current?.querySelectorAll('.reveal, .reveal-fade, .about-stat').forEach((el) => observer.observe(el));
+    sectionRef.current?.querySelectorAll('.reveal, .about-stat').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="about-section" id="about" ref={sectionRef}>
-      <div className="container">
-        <div className="about-layout">
-          <div className="about-left reveal">
-            <div className="section-label">Who We Are</div>
-            <h2 className="section-title">About Us</h2>
+    <section className="py-20 md:py-[100px] bg-white" id="about" ref={sectionRef}>
+      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 lg:gap-24 items-start">
+          <div className="sticky top-[100px] opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
+            <div className="inline-block text-sm font-bold tracking-[0.15em] uppercase bg-clip-text text-transparent bg-[length:200%_auto] mb-3 relative pl-12 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-[2px] before:bg-[var(--color-gold)] bg-gradient-to-r from-[var(--color-gold)] via-[#fff3b0] to-[var(--color-gold)] animate-[gradientFlow_4s_linear_infinite]">
+              Who We Are
+            </div>
+            <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--color-navy)] leading-[1.2] mb-5">About Us</h2>
 
             {/* Animated counter stat card */}
-            <div className="about-stat reveal-delay-2 about-stat">
-              <div className="about-stat-number">
+            <div className="mt-8 md:mt-12 p-8 border border-black/5 bg-[#fbfcfd] rounded-[16px] shadow-[0_4px_24px_rgba(0,0,0,0.02)] inline-block min-w-[240px] opacity-0 translate-y-8 transition-all duration-[800ms] delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 about-stat reveal">
+              <div className="about-stat-number font-serif text-[clamp(3.5rem,6vw,5rem)] font-bold text-[var(--color-navy)] leading-[1] mb-2 relative inline-flex transition-transform duration-[400ms] [&.popped]:animate-[countPop_0.5s_ease_forwards]">
                 <span ref={statRef}>0</span>+
               </div>
-              <span className="about-stat-label">Years of Excellence</span>
+              <span className="block text-[0.95rem] font-bold tracking-[0.1em] uppercase text-[var(--color-gold-dark)]">Years of Excellence</span>
             </div>
           </div>
 
-          <div className="about-text reveal reveal-delay-1">
+          <div className="flex flex-col gap-6 font-sans text-base md:text-[1.1rem] leading-[1.8] text-[#4a5568] opacity-0 translate-y-8 transition-all duration-[800ms] delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
             <p>
               MSK Investment Services Private Limited specializes in providing comprehensive investment
               solutions tailored to meet the unique needs of our clients. As a trusted name in the

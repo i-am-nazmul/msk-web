@@ -44,13 +44,14 @@ const SLIDES = [
 ];
 
 const CheckIcon = () => (
-  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="w-full h-full stroke-[var(--color-gold)] stroke-[3px]">
     <polyline points="2,8 6,12 14,4" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 export default function PhilosophyCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const goTo = useCallback((index: number) => {
@@ -74,30 +75,41 @@ export default function PhilosophyCarousel() {
     return () => track.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    sectionRef.current?.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="philosophy-section" id="investment-philosophy" aria-label="Investment philosophy carousel">
-      <div className="container">
-        <div className="reveal" style={{ color: 'white', marginBottom: 0 }}>
-          <div className="section-label">Our Approach</div>
+    <section className="py-20 md:py-[100px] bg-[#112244]" id="investment-philosophy" ref={sectionRef} aria-label="Investment philosophy carousel">
+      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px]">
+        <div className="text-white mb-0 opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
+          <div className="inline-block text-sm font-bold tracking-[0.15em] uppercase bg-clip-text text-transparent bg-[length:200%_auto] mb-3 relative pl-12 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-[2px] before:bg-[var(--color-gold)] bg-gradient-to-r from-[var(--color-gold)] via-[#fff3b0] to-[var(--color-gold)] animate-[gradientFlow_4s_linear_infinite]">
+            Our Approach
+          </div>
         </div>
-        <div className="carousel-wrapper">
-          <div className="carousel-track" ref={trackRef} role="list">
+        <div className="w-full max-w-[800px] mt-10 mx-auto relative opacity-0 translate-y-8 transition-all duration-[800ms] delay-200 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
+          <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar" ref={trackRef} role="list">
             {SLIDES.map((slide, si) => (
               <div
                 key={slide.title}
-                className="carousel-slide"
+                className="min-w-full flex-none snap-center flex flex-col justify-center px-4"
                 role="listitem"
                 aria-label={`Slide ${si + 1}: ${slide.title}`}
               >
-                <h2 className="carousel-slide-title">{slide.title}</h2>
-                <ul className="philosophy-list">
+                <h2 className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-white mb-8 text-center">{slide.title}</h2>
+                <ul className="flex flex-col gap-5 max-w-[600px] mx-auto w-full">
                   {slide.items.map((item) => (
-                    <li key={item.heading} className="philosophy-item">
-                      <div className="philosophy-check">
+                    <li key={item.heading} className="flex items-start gap-4 p-5 rounded-[12px] bg-white/[0.03] border border-white/10 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 hover:-translate-y-1">
+                      <div className="flex-shrink-0 w-6 h-6 mt-1">
                         <CheckIcon />
                       </div>
-                      <p className="philosophy-item-text">
-                        <strong style={{ color: 'white', display: 'block', marginBottom: '4px' }}>
+                      <p className="text-[0.95rem] text-white/70 leading-[1.6]">
+                        <strong className="text-white block mb-1">
                           {item.heading}
                         </strong>
                         {item.text}
@@ -110,11 +122,11 @@ export default function PhilosophyCarousel() {
           </div>
 
           {/* Dot navigation */}
-          <div className="carousel-dots" role="tablist" aria-label="Carousel navigation">
+          <div className="flex justify-center gap-3 mt-10" role="tablist" aria-label="Carousel navigation">
             {SLIDES.map((slide, i) => (
               <button
                 key={slide.title}
-                className={`carousel-dot${i === activeIndex ? ' active' : ''}`}
+                className={`h-2.5 rounded-full border-none cursor-pointer transition-all duration-300 p-0 hover:bg-white/60 ${i === activeIndex ? 'bg-[var(--color-gold)] w-8 animate-[borderPulse_2s_ease_infinite]' : 'bg-white/30 w-2.5'}`}
                 onClick={() => goTo(i)}
                 aria-label={`Go to slide: ${slide.title}`}
                 aria-selected={i === activeIndex}

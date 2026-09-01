@@ -48,7 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
-      <body>
+      <body className="font-sans text-[#1a1f2e] bg-white leading-relaxed antialiased">
         {children}
         {/* Google Analytics */}
         <Script
