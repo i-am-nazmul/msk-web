@@ -12,73 +12,158 @@ function downloadApp() {
   else window.location.href = androidURL;
 }
 
+const TRUST_BADGES = [
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    title: 'Secure & Trusted',
+    desc: 'Your data is protected with highest standards',
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      </svg>
+    ),
+    title: 'Transparent Access',
+    desc: 'Real-time visibility of your portfolio',
+  },
+  {
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
+    title: 'Goal Focused',
+    desc: 'Every strategy is aligned with your goals',
+  },
+];
+
 export default function Hero() {
-  const scrollTo = useCallback((id: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+  const scrollTo = useCallback(
+    (id: string) => (e: React.MouseEvent) => {
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+    },
+    []
+  );
 
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden" id="home" aria-label="Hero banner">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/img/hero-bg-01.jpg"
-          alt="MSK Investment Services background"
-          fill
-          priority
-          quality={90}
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-        />
-      </div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#0a1628]/85 via-[#112244]/75 to-[#0a1628]/60" aria-hidden="true" />
+    <section
+      className="relative bg-white pt-[72px] min-h-screen flex items-center overflow-hidden"
+      id="home"
+      aria-label="Hero banner"
+    >
 
-      <div className="relative z-[2] text-center px-5 max-w-[860px]">
-        {/* Badge — pulsing border via CSS */}
-        <div className="inline-block text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-gold)] bg-[rgba(248,177,27,0.1)] border border-[rgba(248,177,27,0.3)] py-1.5 px-4.5 rounded-full mb-6 animate-[fadeInDown_0.8s_ease_0.2s_both,borderPulse_3s_ease_1s_infinite]">
-          Trusted Investment Partner Since 2010
-        </div>
 
-        {/* Title — "Investment" glows on loop */}
-        <h1 className="font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white leading-[1.15] mb-5 animate-[fadeInUp_0.9s_ease_0.4s_both]">
-          Comprehensive<br />
-          <span className="text-[var(--color-gold)] animate-[heroTitleGlow_4s_ease-in-out_infinite] inline-block">Investment</span> Solutions
-        </h1>
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-        <p className="text-[clamp(1rem,2vw,1.2rem)] text-white/75 mb-10 animate-[fadeInUp_0.9s_ease_0.6s_both]">
-          Tailored to meet the unique needs of our clients — from portfolio management
-          to personalized financial planning.
-        </p>
+        {/* ── Left column ── */}
+        <div className="flex flex-col">
+          {/* Eyebrow tag */}
+          <div className="inline-flex items-center gap-2 mb-6 animate-[fadeInUp_0.6s_ease_both]">
+            <span className="block w-8 h-[2px] bg-[var(--color-gold)]" />
+            <span className="text-[13px] font-bold tracking-[0.18em] uppercase text-[var(--color-gold)]">
+              Invest with Clarity. Grow with Confidence.
+            </span>
+          </div>
 
-        <div className="flex gap-4 justify-center flex-wrap animate-[fadeInUp_0.9s_ease_0.8s_both]">
-          <button
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-sans text-[0.9rem] font-semibold tracking-[0.03em] transition-all duration-300 border-2 border-transparent active:scale-[0.97] active:translate-y-[1px] bg-[var(--color-gold)] text-[var(--color-navy)] shadow-[0_4px_20px_rgba(248,177,27,0.4)] hover:bg-[var(--color-gold-dark)] hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(248,177,27,0.5)]"
-            onClick={downloadApp}
-            id="hero-download-btn"
-            aria-label="Download the MSK Investment app"
+          {/* Headline */}
+          <h1
+            className="font-inter tracking-tighter text-[clamp(3rem,6vw,4.5rem)] font-bold leading-[1.12] text-[#0a1628] mb-6 animate-[fadeInUp_0.7s_ease_0.1s_both]"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-              <path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zM2 20c0-4.418 4.03-8 9-8s9 3.582 9 8" />
-            </svg>
-            Download App
-          </button>
-          <a
-            href="#our-services"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-sans text-[0.9rem] font-semibold tracking-[0.03em] transition-all duration-300 border-2 border-white/50 active:scale-[0.97] active:translate-y-[1px] bg-transparent text-white hover:bg-white hover:text-[var(--color-navy)] hover:border-white"
-            onClick={scrollTo('#our-services')}
-            id="hero-explore-btn"
-          >
-            Explore Services
-          </a>
+            Your <span className="text-[1.2em]">Wealth</span><br />
+            Deserves More Than<br />
+            <span className="text-[var(--color-gold)]">Market Noise.</span>
+          </h1>
+
+          {/* Sub-copy */}
+          <p className="text-[1.125rem] leading-[1.7] text-gray-500 max-w-[500px] mb-9 animate-[fadeInUp_0.7s_ease_0.2s_both]">
+            Personalised investment strategies, disciplined risk management and transparent
+            guidance—designed around your goals, not market predictions.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-4 mb-12 animate-[fadeInUp_0.7s_ease_0.3s_both]">
+            <button
+              onClick={scrollTo('#contact')}
+              className="group inline-flex items-center gap-2 bg-[var(--color-navy)] text-white text-[1rem] font-semibold px-8 py-4 rounded-lg shadow-[0_4px_16px_rgba(10,22,40,0.25)] hover:bg-[var(--color-navy-mid)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(10,22,40,0.3)] active:translate-y-0 transition-all duration-200"
+              id="hero-consultation-btn"
+              aria-label="Book your wealth consultation"
+            >
+              Book Your Wealth Consultation
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="group-hover:translate-x-0.5 transition-transform duration-200"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={downloadApp}
+              className="group inline-flex items-center gap-2 bg-white text-[var(--color-navy)] text-[1rem] font-semibold px-8 py-4 rounded-lg border border-gray-200 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 transition-all duration-200"
+              id="hero-app-btn"
+              aria-label="Explore the MSK App"
+            >
+              Explore the MSK App
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="group-hover:translate-x-0.5 transition-transform duration-200"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap gap-6 animate-[fadeInUp_0.7s_ease_0.4s_both]">
+            {TRUST_BADGES.map((b) => (
+              <div key={b.title} className="flex items-start gap-3 max-w-[160px]">
+                <div className="flex-shrink-0 mt-0.5 text-[var(--color-gold)]">{b.icon}</div>
+                <div>
+                  <p className="text-[14px] font-bold text-[#0a1628] leading-tight">{b.title}</p>
+                  <p className="text-[13px] text-gray-400 leading-snug mt-0.5">{b.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Right column — phone mockup ── */}
+        <div className="relative flex items-center justify-center animate-[fadeInUp_0.9s_ease_0.2s_both]">
+
+
+          <div className="relative w-full max-w-[480px]">
+            <Image
+              src="/hero_image.png"
+              alt="Financial Freedom Pyramid - Research, Risk Control, Consistency, Discipline, Your Financial Freedom"
+              width={480}
+              height={640}
+              priority
+              quality={95}
+              className="w-full h-auto object-contain drop-shadow-2xl"
+              style={{ height: 'auto' }}
+            />
+          </div>
         </div>
       </div>
-
-      {/* Scroll indicator — floats up and down via CSS floatBob */}
-      <a href="#about" className="absolute bottom-9 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-2 animate-[floatBob_3s_ease-in-out_infinite,fadeIn_1s_ease_1.2s_both]" onClick={scrollTo('#about')} aria-label="Scroll to content">
-        <div className="w-[26px] h-[42px] border-2 border-white/50 rounded-[13px] relative flex justify-center">
-          <span className="w-1 h-2 bg-[var(--color-gold)] rounded-sm absolute top-1.5 animate-scroll-bounce" />
-        </div>
-        <span className="text-[10px] font-semibold tracking-[0.12em] uppercase text-white/50">Scroll</span>
-      </a>
     </section>
   );
 }

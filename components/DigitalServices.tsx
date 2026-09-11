@@ -23,44 +23,58 @@ export default function DigitalServices() {
   }, []);
 
   return (
-    <section className="py-20 md:py-[100px] bg-[var(--color-off-white)]" id="digital-services" ref={sectionRef}>
-      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px]">
+    <section className="py-20 md:py-[100px] bg-[var(--color-off-white)] relative overflow-hidden" id="digital-services" ref={sectionRef}>
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tl from-[#f8b11b]/[0.04] to-transparent blur-3xl" aria-hidden="true" />
+
+      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px] relative z-10">
         <div className="opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
           <div className="inline-block text-sm font-bold tracking-[0.15em] uppercase bg-clip-text text-transparent bg-[length:200%_auto] mb-3 relative pl-12 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-[2px] before:bg-[var(--color-gold)] bg-gradient-to-r from-[var(--color-gold)] via-[#fff3b0] to-[var(--color-gold)] animate-[gradientFlow_4s_linear_infinite]">
             Technology & Convenience
           </div>
-          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--color-navy)] leading-[1.2] mb-5">Fully Digitalized Services</h2>
-          <p className="text-base md:text-[1.1rem] text-[#4a5568] max-w-[720px] leading-[1.6] mb-12">
+          <h2 className="font-inter tracking-tighter text-[clamp(2.2rem,4.5vw,3.2rem)] font-bold text-[var(--color-navy)] leading-[1.15] mb-5">Fully Digitalized Services</h2>
+          <p className="text-[1.05rem] md:text-[1.15rem] text-[#4a5568] max-w-[720px] leading-[1.7] mb-14">
             In today&apos;s fast-paced world, we understand the importance of convenience and
             accessibility. MSK Investment Services is fully digitalized, offering a seamless and
             efficient experience for all our clients.
           </p>
         </div>
 
-        {/* Cards use spring-bounce scale pop entrance with staggered delays */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Cards with gradient top-border accent */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
           {DIGITAL_SERVICES.map((service, i) => (
             <article
               key={service.title}
-              className="group bg-white border border-[#e2e8f0] p-8 rounded-[12px] flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] opacity-0 scale-90 translate-y-6 [&.visible]:opacity-100 [&.visible]:scale-100 [&.visible]:translate-y-0 transition-[opacity,transform] duration-[650ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] reveal-scale"
+              className="group bg-white p-9 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] opacity-0 scale-90 translate-y-6 [&.visible]:opacity-100 [&.visible]:scale-100 [&.visible]:translate-y-0 transition-[opacity,transform] duration-[650ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] reveal-scale relative overflow-hidden"
               style={{ transitionDelay: `${(i + 1) * 100}ms` }}
               role="article"
             >
-              <div className="w-16 h-16 rounded-full bg-[var(--color-off-white)] flex justify-center items-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[rgba(248,177,27,0.15)]">
+              {/* Gradient top border */}
+              <span className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
+              
+              {/* Subtle background glow on hover */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[rgba(248,177,27,0.03)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
+
+              <div className="relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-off-white)] to-[#f0ece4] flex justify-center items-center mb-6 transition-all duration-400 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(248,177,27,0.15)] group-hover:bg-gradient-to-br group-hover:from-[rgba(248,177,27,0.15)] group-hover:to-[rgba(248,177,27,0.05)] ring-1 ring-black/[0.04] group-hover:ring-[rgba(248,177,27,0.2)]">
                 <Image src={service.icon} alt={service.title} width={38} height={38} style={{ objectFit: 'contain' }} />
               </div>
-              <div className="font-serif text-[1.15rem] font-bold text-[var(--color-navy)] mb-3">{service.title}</div>
-              <p className="text-[0.9rem] text-[#4a5568] leading-[1.6]">{service.desc}</p>
+              <div className="relative z-10 font-inter tracking-tight text-[1.1rem] font-bold text-[var(--color-navy)] mb-3 transition-colors duration-300 group-hover:text-[var(--color-gold-dark)]">{service.title}</div>
+              <p className="relative z-10 text-[0.92rem] text-[#5a6577] leading-[1.7]">{service.desc}</p>
             </article>
           ))}
         </div>
 
-        <div className="mt-12 md:mt-16 bg-[#eef1f6] p-6 md:p-8 rounded-[12px] text-center max-w-[900px] mx-auto border border-[#d1d5db] opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
-          <p className="text-[0.95rem] md:text-[1.05rem] text-[var(--color-navy)] leading-[1.6]">
+        {/* Cities callout with gradient background */}
+        <div className="mt-14 md:mt-18 bg-gradient-to-br from-[#eef1f6] via-[#f5f3ee] to-[#eef1f6] p-8 md:p-10 rounded-2xl text-center max-w-[900px] mx-auto border border-[var(--color-gold)]/10 opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal relative overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] animate-[borderGlow_4s_ease_infinite]">
+          {/* Decorative corner shapes */}
+          <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-[var(--color-gold)]/10 to-transparent rounded-br-[32px]" aria-hidden="true" />
+          <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[var(--color-gold)]/10 to-transparent rounded-tl-[32px]" aria-hidden="true" />
+          
+          <p className="relative z-10 text-[1rem] md:text-[1.1rem] text-[var(--color-navy)] leading-[1.7]">
             We have our client base spread across major cities of{' '}
-            <strong>Chennai, Hyderabad, Bengaluru, Delhi, Mumbai, Kolkata, Bhubaneshwar, Jaipur</strong>{' '}
+            <strong className="text-[var(--color-gold-dark)]">Chennai, Hyderabad, Bengaluru, Delhi, Mumbai, Kolkata, Bhubaneshwar, Jaipur</strong>{' '}
             and more. We also offer our services to{' '}
-            <strong>Non-Resident Indians & Persons of Indian Origin (PIO)</strong>.
+            <strong className="text-[var(--color-gold-dark)]">Non-Resident Indians & Persons of Indian Origin (PIO)</strong>.
           </p>
         </div>
       </div>

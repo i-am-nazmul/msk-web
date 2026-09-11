@@ -41,19 +41,23 @@ export default function BusinessPrinciples() {
   }, []);
 
   return (
-    <section className="py-20 md:py-[100px] bg-[var(--color-navy)]" id="business-principles" ref={sectionRef}>
-      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px]">
+    <section className="py-20 md:py-[100px] bg-[var(--color-navy)] relative overflow-hidden" id="business-principles" ref={sectionRef}>
+      {/* Decorative glow elements */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#f8b11b]/[0.03] to-transparent blur-3xl" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tl from-[#1a3260]/30 to-transparent blur-3xl" aria-hidden="true" />
+
+      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px] relative z-10">
         <div className="opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
           <div className="inline-block text-sm font-bold tracking-[0.15em] uppercase mb-3 relative pl-12 text-[var(--color-gold)] before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-[2px] before:bg-[var(--color-gold)]">
             How We Operate
           </div>
-          <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-bold text-white leading-[1.2] mb-5">Business Principles</h2>
-          <p className="text-base md:text-[1.1rem] text-white/60 max-w-[640px] leading-[1.6] mb-12">
+          <h2 className="font-inter tracking-tighter text-[clamp(2.2rem,4.5vw,3.2rem)] font-bold text-white leading-[1.15] mb-5">Business Principles</h2>
+          <p className="text-[1.05rem] md:text-[1.15rem] text-white/60 max-w-[640px] leading-[1.7] mb-14">
             The foundational values and philosophies that guide every decision we make.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden gap-[2px] bg-gradient-to-br from-[var(--color-gold)]/20 to-[var(--color-navy-light)]/40">
           {PRINCIPLES.map((p, i) => (
             <article
               key={p.title}
@@ -63,10 +67,15 @@ export default function BusinessPrinciples() {
               role="article"
             >
               <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[800ms] group-hover:scale-105 z-0" style={{ backgroundImage: `url(${p.bg})` }} aria-hidden="true" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-navy)] via-[var(--color-navy)]/80 to-transparent z-[1] transition-opacity duration-500 group-hover:opacity-90" aria-hidden="true" />
-              
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-navy)] via-[var(--color-navy)]/80 to-[var(--color-navy)]/20 z-[1] transition-opacity duration-500 group-hover:opacity-90" aria-hidden="true" />
+
+              {/* Numbered badge */}
+              <div className="absolute top-6 right-6 z-[2] text-[5rem] font-inter font-bold leading-none text-white/[0.06] group-hover:text-[var(--color-gold)]/10 transition-colors duration-500" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+
               <div className="relative z-[2] w-full max-w-[500px]">
-                <h2 className="font-serif text-[1.5rem] font-bold text-white mb-4 transition-all duration-400 group-hover:text-[var(--color-gold)] group-hover:-translate-y-2">{p.title}</h2>
+                <h2 className="font-inter tracking-tight text-[1.4rem] font-bold text-white mb-4 transition-all duration-400 group-hover:text-[var(--color-gold)] group-hover:-translate-y-2">{p.title}</h2>
                 <p className="text-[0.95rem] text-white/70 leading-[1.7] opacity-0 max-h-0 overflow-hidden transition-all duration-500 translate-y-4 group-hover:opacity-100 group-hover:max-h-[240px] group-hover:translate-y-0">{p.text}</p>
               </div>
             </article>

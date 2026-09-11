@@ -1,17 +1,23 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Outfit, Playfair_Display, Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-outfit',
   display: 'swap',
 });
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
   display: 'swap',
 });
 
@@ -47,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en-US" className={`${outfit.variable} ${playfair.variable} ${inter.variable}`}>
       <body className="font-sans text-[#1a1f2e] bg-white leading-relaxed antialiased">
         {children}
         {/* Google Analytics */}

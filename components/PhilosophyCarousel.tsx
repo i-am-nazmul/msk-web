@@ -49,6 +49,12 @@ const CheckIcon = () => (
   </svg>
 );
 
+const ArrowIcon = ({ direction }: { direction: 'left' | 'right' }) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {direction === 'left' ? <path d="M15 18l-6-6 6-6" /> : <path d="M9 18l6-6-6-6" />}
+  </svg>
+);
+
 export default function PhilosophyCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -57,9 +63,10 @@ export default function PhilosophyCarousel() {
   const goTo = useCallback((index: number) => {
     const track = trackRef.current;
     if (!track) return;
-    const slide = track.children[index] as HTMLElement;
+    const clamped = Math.max(0, Math.min(index, SLIDES.length - 1));
+    const slide = track.children[clamped] as HTMLElement;
     track.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
-    setActiveIndex(index);
+    setActiveIndex(clamped);
   }, []);
 
   useEffect(() => {
@@ -85,8 +92,12 @@ export default function PhilosophyCarousel() {
   }, []);
 
   return (
-    <section className="py-20 md:py-[100px] bg-[#112244]" id="investment-philosophy" ref={sectionRef} aria-label="Investment philosophy carousel">
-      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px]">
+    <section className="py-20 md:py-[100px] bg-[#112244] relative overflow-hidden" id="investment-philosophy" ref={sectionRef} aria-label="Investment philosophy carousel">
+      {/* Decorative elements */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] h-[600px] bg-gradient-to-r from-[#f8b11b]/[0.04] to-transparent blur-3xl" aria-hidden="true" />
+      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-b from-[#0a1628]/50 to-transparent blur-3xl" aria-hidden="true" />
+
+      <div className="max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px] relative z-10">
         <div className="text-white mb-0 opacity-0 translate-y-8 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:opacity-100 [&.visible]:translate-y-0 reveal">
           <div className="inline-block text-sm font-bold tracking-[0.15em] uppercase bg-clip-text text-transparent bg-[length:200%_auto] mb-3 relative pl-12 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-[2px] before:bg-[var(--color-gold)] bg-gradient-to-r from-[var(--color-gold)] via-[#fff3b0] to-[var(--color-gold)] animate-[gradientFlow_4s_linear_infinite]">
             Our Approach
@@ -101,15 +112,17 @@ export default function PhilosophyCarousel() {
                 role="listitem"
                 aria-label={`Slide ${si + 1}: ${slide.title}`}
               >
-                <h2 className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-white mb-8 text-center">{slide.title}</h2>
-                <ul className="flex flex-col gap-5 max-w-[600px] mx-auto w-full">
+                <h2 className="font-inter tracking-tighter text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-white mb-10 text-center">{slide.title}</h2>
+                <ul className="flex flex-col gap-4 max-w-[640px] mx-auto w-full">
                   {slide.items.map((item) => (
-                    <li key={item.heading} className="flex items-start gap-4 p-5 rounded-[12px] bg-white/[0.03] border border-white/10 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 hover:-translate-y-1">
-                      <div className="flex-shrink-0 w-6 h-6 mt-1">
-                        <CheckIcon />
+                    <li key={item.heading} className="group/item flex items-start gap-4 p-6 rounded-xl bg-white/[0.04] border border-white/[0.08] transition-all duration-300 hover:bg-white/[0.08] hover:border-[var(--color-gold)]/20 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+                      <div className="flex-shrink-0 w-7 h-7 mt-0.5 rounded-full bg-[var(--color-gold)]/10 flex items-center justify-center group-hover/item:bg-[var(--color-gold)]/20 transition-colors duration-300">
+                        <div className="w-4 h-4">
+                          <CheckIcon />
+                        </div>
                       </div>
-                      <p className="text-[0.95rem] text-white/70 leading-[1.6]">
-                        <strong className="text-white block mb-1">
+                      <p className="text-[0.95rem] text-white/70 leading-[1.7]">
+                        <strong className="text-white block mb-1 text-[1rem] group-hover/item:text-[var(--color-gold)] transition-colors duration-300">
                           {item.heading}
                         </strong>
                         {item.text}
@@ -121,19 +134,42 @@ export default function PhilosophyCarousel() {
             ))}
           </div>
 
-          {/* Dot navigation */}
-          <div className="flex justify-center gap-3 mt-10" role="tablist" aria-label="Carousel navigation">
-            {SLIDES.map((slide, i) => (
-              <button
-                key={slide.title}
-                className={`h-2.5 rounded-full border-none cursor-pointer transition-all duration-300 p-0 hover:bg-white/60 ${i === activeIndex ? 'bg-[var(--color-gold)] w-8 animate-[borderPulse_2s_ease_infinite]' : 'bg-white/30 w-2.5'}`}
-                onClick={() => goTo(i)}
-                aria-label={`Go to slide: ${slide.title}`}
-                aria-selected={i === activeIndex}
-                role="tab"
-                id={`carousel-dot-${i}`}
-              />
-            ))}
+          {/* Navigation controls */}
+          <div className="flex justify-center items-center gap-5 mt-12">
+            {/* Left arrow */}
+            <button
+              onClick={() => goTo(activeIndex - 1)}
+              disabled={activeIndex === 0}
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 transition-all duration-300 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:border-white/20 disabled:hover:text-white/60 disabled:hover:bg-transparent"
+              aria-label="Previous slide"
+            >
+              <ArrowIcon direction="left" />
+            </button>
+
+            {/* Dots */}
+            <div className="flex gap-3" role="tablist" aria-label="Carousel navigation">
+              {SLIDES.map((slide, i) => (
+                <button
+                  key={slide.title}
+                  className={`h-2.5 rounded-full border-none cursor-pointer transition-all duration-300 p-0 hover:bg-white/60 ${i === activeIndex ? 'bg-[var(--color-gold)] w-8 animate-[borderPulse_2s_ease_infinite]' : 'bg-white/30 w-2.5'}`}
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to slide: ${slide.title}`}
+                  aria-selected={i === activeIndex}
+                  role="tab"
+                  id={`carousel-dot-${i}`}
+                />
+              ))}
+            </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={() => goTo(activeIndex + 1)}
+              disabled={activeIndex === SLIDES.length - 1}
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 transition-all duration-300 hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] hover:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:border-white/20 disabled:hover:text-white/60 disabled:hover:bg-transparent"
+              aria-label="Next slide"
+            >
+              <ArrowIcon direction="right" />
+            </button>
           </div>
         </div>
       </div>
