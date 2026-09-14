@@ -159,7 +159,7 @@ export default function Hero() {
               priority
               quality={95}
               className="w-full h-auto object-contain drop-shadow-2xl"
-              style={{ height: 'auto' }}
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         </div>
