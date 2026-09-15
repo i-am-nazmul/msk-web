@@ -67,8 +67,8 @@ const Hero4 = () => {
     offset: ["start end", "center center"]
   });
 
-  const width = useTransform(scrollYProgress, [0, 1], ["100%", "92%"]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ["0px", "24px"]);
+  const width = useTransform(scrollYProgress, [0, 1], ["50%", "90%"]);
+  const borderRadius = useTransform(scrollYProgress, [0, 1], ["40px", "24px"]);
 
   return (
     <section ref={containerRef} className="relative w-full bg-[#F9FAFB] py-16 overflow-hidden">
@@ -96,6 +96,7 @@ const Hero4 = () => {
         <Image 
           src="/hero_section_4_pic.png"
           fill
+          sizes="100vw"
           alt="Disciplined investment approach"
           className="object-cover object-[70%_center] lg:object-center"
           priority

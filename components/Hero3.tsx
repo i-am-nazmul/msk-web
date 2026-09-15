@@ -83,8 +83,8 @@ const solutions = [
 const SolutionCard = ({ title, description, image, icon }: { title: string, description: string, image: string, icon: React.ReactNode }) => (
   <div className="relative overflow-hidden bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col h-full group transform hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 min-h-[160px] cursor-pointer">
     {/* Image side (right) */}
-    <div className="absolute inset-y-0 right-0 w-[85%] pointer-events-none">
-      <Image src={image} fill alt={title} className="object-cover object-left group-hover:scale-105 transition-transform duration-700" />
+    <div className="absolute inset-y-0 right-0 w-[85%] pointer-events-none overflow-hidden">
+      <Image src={image} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" alt={title} className="object-cover object-left group-hover:scale-105 transition-transform duration-700" />
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-white/10" />
     </div>

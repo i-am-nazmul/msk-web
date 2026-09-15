@@ -158,8 +158,9 @@ export default function Hero() {
               height={640}
               priority
               quality={95}
-              className="w-full h-auto object-contain drop-shadow-2xl"
-              style={{ width: '100%', height: 'auto' }}
+              sizes="(max-width: 768px) 100vw, 480px"
+              className="object-contain drop-shadow-2xl"
+              style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
             />
           </div>
         </div>

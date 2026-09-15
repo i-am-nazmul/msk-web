@@ -1,6 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+const circleImages = [
+  "financial_planning.png",
+  "retirement_planning.png",
+  "tax_planning.png",
+  "wealth_creation.png",
+  "insurance_planning.png",
+  "childs_future.png",
+];
+
 const Hero2 = () => {
   return (
     <section 
@@ -15,7 +24,7 @@ const Hero2 = () => {
               <div className="w-8 h-[2px] bg-[#F29F05]"></div>
               <span className="text-[#F29F05] font-semibold tracking-wider text-sm uppercase">More Than Investments</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0A192F] leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-[#0A192F] leading-tight mb-6">
               Your Financial Life <br />
               Is <span className="text-[#F29F05]">Bigger Than a Portfolio.</span>
             </h1>
@@ -30,7 +39,7 @@ const Hero2 = () => {
 
           <div className="pt-8">
             <div className="w-8 h-[2px] bg-[#F29F05] mb-4"></div>
-            <h2 className="text-2xl md:text-3xl font-serif text-[#0A192F] mb-4">
+            <h2 className="text-2xl md:text-3xl font-sans font-bold text-[#0A192F] mb-4">
               One Strategy. Multiple Goals.
             </h2>
             <p className="text-gray-700 text-lg max-w-lg leading-relaxed">
@@ -39,16 +48,49 @@ const Hero2 = () => {
           </div>
         </div>
 
-        {/* Right Content - Graphic */}
-        <div className="relative w-full h-full flex items-center justify-center hidden md:block">
-          <Image 
-            src="/hero_section_2.png" 
-            alt="Financial Goals" 
-            width={800} 
-            height={800} 
-            className="w-full h-auto object-contain"
-            priority
-          />
+        {/* Right Content - Concentric Circles */}
+        <div className="relative w-full h-full hidden lg:flex items-center justify-center min-h-[400px]">
+          <div className="relative flex items-center justify-center w-[400px] h-[400px]">
+            {/* Outer Circle (2r) */}
+            <div className="absolute inset-0 rounded-full border-[2px] border-gray-200"></div>
+            {/* Inner Circle (r) with Logo */}
+            <div className="absolute w-[150px] h-[150px] rounded-full border-[2px] border-[#F29F05] bg-white z-0 flex items-center justify-center shadow-sm">
+              <Image 
+                src="/MSK Logo Symbol.png" 
+                alt="MSK Symbol" 
+                width={110} 
+                height={110} 
+                className="object-contain"
+                style={{ width: 'auto', height: 'auto' }}
+              />
+            </div>
+            
+            {/* Orbiting Container */}
+            <div className="absolute inset-0 animate-[spin_40s_linear_infinite]">
+              {circleImages.map((img, index) => {
+                const angle = index * 60;
+                return (
+                  <div 
+                    key={index} 
+                    className="absolute top-1/2 left-1/2"
+                    style={{
+                      transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-200px) rotate(-${angle}deg)`,
+                    }}
+                  >
+                    <div className="relative w-[176px] h-[176px] z-10 animate-[spin_40s_linear_infinite_reverse] flex items-center justify-center transition-transform hover:scale-110 duration-300">
+                      <Image 
+                        src={`/hero_section_2_pics/${img}`}
+                        alt={img.replace('.png', '').replace(/_/g, ' ')}
+                        fill
+                        sizes="176px"
+                        className="object-contain filter drop-shadow-md"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
