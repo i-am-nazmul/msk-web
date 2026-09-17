@@ -96,7 +96,7 @@ const Hero4 = () => {
         <Image 
           src="/hero_section_4_pic.png"
           fill
-          sizes="100vw"
+          sizes="(max-width: 1600px) 90vw, 1600px"
           alt="Disciplined investment approach"
           className="object-cover object-[70%_center] lg:object-center"
           priority

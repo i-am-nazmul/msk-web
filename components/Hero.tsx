@@ -76,7 +76,7 @@ export default function Hero() {
           <h1
             className="font-inter tracking-tighter text-[clamp(3rem,6vw,4.5rem)] font-bold leading-[1.12] text-[#0a1628] mb-6 animate-[fadeInUp_0.7s_ease_0.1s_both]"
           >
-            Your <span className="text-[1.2em]">Wealth</span><br />
+            Your <span className="text-[1.2em] inline-block animate-[popIn_0.6s_ease-out_1s_both]">Wealth</span><br />
             Deserves More Than<br />
             <span className="text-[var(--color-gold)]">Market Noise.</span>
           </h1>
@@ -159,8 +159,7 @@ export default function Hero() {
               priority
               quality={95}
               sizes="(max-width: 768px) 100vw, 480px"
-              className="object-contain drop-shadow-2xl"
-              style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
+              className="w-full h-auto object-contain drop-shadow-2xl"
             />
           </div>
         </div>

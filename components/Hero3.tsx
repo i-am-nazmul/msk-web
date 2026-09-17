@@ -1,5 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const solutions = [
   {
@@ -112,7 +115,13 @@ const Hero3 = () => {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-16 space-y-6">
+        <motion.div 
+          className="flex flex-col items-center text-center mb-16 space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div className="max-w-4xl flex flex-col items-center">
             <div className="flex items-center space-x-4 mb-4">
               <span className="text-[#F29F05] font-semibold tracking-wider text-sm uppercase">Our Solutions</span>
@@ -124,16 +133,29 @@ const Hero3 = () => {
               From your first investment to your retirement years, our solutions are designed to help you build, protect and pass on what matters most.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {solutions.map((solution, i) => (
-            <div key={i} className={i === 6 ? "md:col-span-2 lg:col-span-3 flex justify-center" : ""}>
+            <motion.div 
+              key={i} 
+              className={i === 6 ? "md:col-span-2 lg:col-span-3 flex justify-center" : ""}
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, amount: 0.1 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: (i % 3) * 0.1, 
+                type: "spring", 
+                stiffness: 120, 
+                damping: 14 
+              }}
+            >
               <div className={i === 6 ? "w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]" : "h-full"}>
                 <SolutionCard {...solution} />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
