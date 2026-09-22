@@ -84,11 +84,15 @@ const solutions = [
 ];
 
 const SolutionCard = ({ title, description, image, icon }: { title: string, description: string, image: string, icon: React.ReactNode }) => (
-  <div className="relative overflow-hidden bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col h-full group transform hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 min-h-[160px] cursor-pointer">
-    {/* Image side (right) */}
-    <div className="absolute inset-y-0 right-0 w-[85%] pointer-events-none overflow-hidden">
-      <Image src={image} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" alt={title} className="object-cover object-left group-hover:scale-105 transition-transform duration-700" />
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+  <motion.div 
+    whileHover={{ scale: 1.03, y: -12, rotate: 1.5 }}
+    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+    className="relative overflow-hidden bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col h-full group hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.15)] cursor-pointer"
+  >
+    {/* Image side */}
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <Image src={image} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" alt={title} className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white from-20% via-white/80 via-60% to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-white/10" />
     </div>
 
@@ -106,12 +110,12 @@ const SolutionCard = ({ title, description, image, icon }: { title: string, desc
         </p>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const Hero3 = () => {
   return (
-    <section className="w-full relative bg-[#F9FAFB] py-20 px-4 sm:px-6 lg:px-8">
+    <section id="our-services" className="w-full relative bg-[#F9FAFB] py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         
         {/* Header */}
@@ -119,8 +123,8 @@ const Hero3 = () => {
           className="flex flex-col items-center text-center mb-16 space-y-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="max-w-4xl flex flex-col items-center">
             <div className="flex items-center space-x-4 mb-4">
@@ -141,15 +145,13 @@ const Hero3 = () => {
             <motion.div 
               key={i} 
               className={i === 6 ? "md:col-span-2 lg:col-span-3 flex justify-center" : ""}
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, amount: 0.1 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ 
-                duration: 0.5, 
-                delay: (i % 3) * 0.1, 
-                type: "spring", 
-                stiffness: 120, 
-                damping: 14 
+                duration: 0.7, 
+                delay: (i % 3) * 0.15, 
+                ease: [0.16, 1, 0.3, 1]
               }}
             >
               <div className={i === 6 ? "w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]" : "h-full"}>

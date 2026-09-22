@@ -51,7 +51,7 @@ const stats = [
 
 const Hero7 = () => {
   return (
-    <section className="w-full relative bg-white overflow-hidden border-t border-gray-100">
+    <section id="about" className="w-full relative bg-white overflow-hidden border-t border-gray-100">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Main Content Area */}
@@ -70,7 +70,7 @@ const Hero7 = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-7xl font-serif font-semibold text-[#0A192F] mb-8 leading-[1.1]"
+            className="text-4xl md:text-5xl lg:text-7xl font-sans font-bold text-[#0A192F] mb-8 leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -129,7 +129,7 @@ const Hero7 = () => {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8, delay: 0.2 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <span className="text-3xl md:text-4xl font-serif font-semibold text-[#0A192F]">{stat.value}</span>
+                  <span className="text-3xl md:text-4xl font-sans font-bold text-[#0A192F]">{stat.value}</span>
                   <div className="flex flex-col">
                     <span className="text-sm text-gray-500">{stat.label}</span>
                     {stat.subLabel && <span className="text-sm text-gray-500">{stat.subLabel}</span>}

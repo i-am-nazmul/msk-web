@@ -36,7 +36,7 @@ const WhatsAppIcon = () => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-navy)] relative overflow-hidden">
+    <footer className="bg-white relative overflow-hidden">
       {/* Gold top accent line */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent" aria-hidden="true" />
 
@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gradient-to-b from-[var(--color-gold)]/[0.04] to-transparent blur-3xl" aria-hidden="true" />
 
       <div className="pt-16 md:pt-20 pb-8 max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px] relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 border-b border-white/10 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 border-b border-gray-100 pb-12">
           {/* Brand */}
           <div className="flex flex-col gap-5 max-w-[400px]">
             <Image
@@ -52,9 +52,9 @@ export default function Footer() {
               alt="MSK Investment Services"
               width={160}
               height={48}
-              className="brightness-0 invert opacity-90 h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
-            <p className="text-[0.95rem] text-white/70 leading-[1.7]">
+            <p className="text-[0.95rem] text-gray-600 leading-[1.7]">
               Comprehensive investment solutions tailored to meet the unique needs of our clients —
               helping you grow, protect, and manage your wealth.
             </p>
@@ -65,7 +65,7 @@ export default function Footer() {
                 <a
                   key={platform}
                   href="#"
-                  className="w-10 h-10 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-white/50 transition-all duration-300 hover:bg-[var(--color-gold)]/10 hover:border-[var(--color-gold)]/30 hover:text-[var(--color-gold)] hover:-translate-y-0.5"
+                  className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 transition-all duration-300 hover:bg-[var(--color-navy)] hover:border-[var(--color-navy)] hover:text-white hover:-translate-y-0.5"
                   aria-label={platform}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -80,7 +80,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <div className="text-white font-bold tracking-[0.1em] uppercase mb-6 text-sm">Contact Us</div>
+            <div className="text-[#0A192F] font-bold tracking-[0.1em] uppercase mb-6 text-sm">Contact Us</div>
             <div className="flex flex-col gap-5 mb-8">
               <div className="flex items-start gap-4 group transition-all duration-300">
                 <div className="flex-shrink-0 w-[22px] h-[22px] mt-1 transition-transform duration-300 group-hover:scale-110"><MapIcon /></div>
@@ -88,7 +88,7 @@ export default function Footer() {
                   href="https://maps.app.goo.gl/39RG7wW5o6UHasR6A"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[0.95rem] text-white/70 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-gold)] no-underline"
+                  className="text-[0.95rem] text-gray-600 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-navy)] no-underline"
                 >
                   Ground Floor, New No 28, Old No 70,<br />
                   Spur Tank Road, Chetpet,<br />
@@ -97,20 +97,20 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-4 group transition-all duration-300">
                 <div className="flex-shrink-0 w-[22px] h-[22px] mt-1 transition-transform duration-300 group-hover:scale-110"><MailIcon /></div>
-                <a href="mailto:info@mskinvestmentservices.com" className="text-[0.95rem] text-white/70 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-gold)] no-underline">
+                <a href="mailto:info@mskinvestmentservices.com" className="text-[0.95rem] text-gray-600 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-navy)] no-underline">
                   info@mskinvestmentservices.com
                 </a>
               </div>
               <div className="flex items-start gap-4 group transition-all duration-300">
                 <div className="flex-shrink-0 w-[22px] h-[22px] mt-1 transition-transform duration-300 group-hover:scale-110"><PhoneIcon /></div>
-                <a href="tel:+919884660060" className="text-[0.95rem] text-white/70 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-gold)] no-underline">
+                <a href="tel:+919884660060" className="text-[0.95rem] text-gray-600 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-navy)] no-underline">
                   +91 98846 60060
                 </a>
               </div>
             </div>
 
             {/* Map */}
-            <div className="w-full max-w-[340px] h-[160px] rounded-xl overflow-hidden border border-white/15 mt-2 bg-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+            <div className="w-full max-w-[340px] h-[160px] rounded-xl overflow-hidden border border-gray-100 mt-2 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
               <iframe
                 title="MSK Investment Services location map"
                 loading="lazy"
@@ -129,7 +129,7 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/70 font-medium transition-all duration-300 hover:text-[var(--color-gold)] relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-[var(--color-gold)] after:transition-all after:duration-300 hover:after:w-full"
+                className="text-sm text-gray-500 font-medium transition-all duration-300 hover:text-[var(--color-navy)] relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-[var(--color-navy)] after:transition-all after:duration-300 hover:after:w-full"
                 {...(link.external
                   ? { target: '_blank', rel: 'noopener noreferrer' }
                   : {})}
@@ -138,7 +138,7 @@ export default function Footer() {
               </a>
             ))}
           </nav>
-          <p className="text-[0.85rem] text-white/50 text-center md:text-right">
+          <p className="text-[0.85rem] text-gray-400 text-center md:text-right">
             © {new Date().getFullYear()} MSK Investment Services Pvt. Ltd. All rights reserved.
           </p>
         </div>

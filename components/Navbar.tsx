@@ -6,19 +6,10 @@ import Image from 'next/image';
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About Us', href: '#about' },
-  {
-    label: 'Our Solutions',
-    href: '#our-services',
-    children: [
-      { label: 'Wealth Management', href: '#our-services' },
-      { label: 'Portfolio Management', href: '#our-services' },
-      { label: 'Financial Planning', href: '#our-services' },
-      { label: 'Tax Planning', href: '#our-services' },
-    ],
-  },
+  { label: 'Our Solutions', href: '#our-services' },
   { label: 'Our Philosophy', href: '#business-principles' },
   { label: 'Digital Experience', href: '#digital-services' },
-  { label: 'Insights', href: '#insights' },
+  { label: 'Who We Serve', href: '#who-we-serve' },
   { label: 'Contact Us', href: '#contact' },
 ];
 
@@ -51,7 +42,18 @@ export default function Navbar() {
       setMobileOpen(false);
       setOpenDropdown(null);
       const target = document.querySelector(href);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (target) {
+        const offset = 100; // Adjust this value based on your navbar height + desired padding
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = target.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     },
     []
   );
