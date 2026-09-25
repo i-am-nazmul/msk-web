@@ -58,10 +58,8 @@ const servingOptions = [
 
 const Hero6 = () => {
   return (
-    <div id="who-we-serve" className="w-full bg-gradient-to-b from-[#F9FAFB] to-white py-8 lg:py-16">
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
-        <section className="w-full relative bg-gradient-to-br from-[#4C1D95] to-[#2E1065] py-24 rounded-[2.5rem] lg:rounded-[4rem] overflow-hidden shadow-2xl">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+    <section id="who-we-serve" className="w-full relative bg-white py-24 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         
         {/* Top Header */}
         <div className="flex flex-col items-center justify-center mb-16 text-center">
@@ -78,7 +76,7 @@ const Hero6 = () => {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6 leading-tight max-w-4xl"
+            className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-[#0A192F] mb-6 leading-tight max-w-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -88,7 +86,7 @@ const Hero6 = () => {
           </motion.h2>
           
           <motion.p 
-            className="text-white/80 text-lg max-w-2xl leading-relaxed mx-auto"
+            className="text-gray-500 text-lg max-w-2xl leading-relaxed mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -162,8 +160,6 @@ const Hero6 = () => {
         </div>
       </div>
     </section>
-      </div>
-    </div>
   );
 };
 
