@@ -3,13 +3,20 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 
-const NAV_LINKS = [
+type NavLink = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+const NAV_LINKS: NavLink[] = [
   { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
   { label: 'Our Solutions', href: '#our-services' },
   { label: 'Our Philosophy', href: '#business-principles' },
   { label: 'Digital Experience', href: '#digital-services' },
   { label: 'Who We Serve', href: '#who-we-serve' },
+  { label: 'About Us', href: '#about' },
+  { label: 'Why MSK', href: '#why-msk' },
   { label: 'Contact Us', href: '#contact' },
 ];
 

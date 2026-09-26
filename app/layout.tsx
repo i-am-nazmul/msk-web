@@ -40,12 +40,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: [
-      { url: '/img/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/img/favicon/favicon.ico', rel: 'shortcut icon' },
-      { url: '/img/favicon/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/img/favicon/apple-touch-icon.png',
+    icon: '/msk-favicon.png',
+    apple: '/msk-favicon.png',
   },
   manifest: '/img/favicon/site.webmanifest',
   other: {

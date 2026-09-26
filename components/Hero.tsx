@@ -150,16 +150,15 @@ export default function Hero() {
         <div className="relative flex items-center justify-center animate-[fadeInUp_0.9s_ease_0.2s_both]">
 
 
-          <div className="relative w-full max-w-[480px]">
+          <div className="relative w-full max-w-[480px] aspect-[3/4]">
             <Image
               src="/hero_image.png"
               alt="Financial Freedom Pyramid - Research, Risk Control, Consistency, Discipline, Your Financial Freedom"
-              width={480}
-              height={640}
+              fill
               priority
               quality={95}
               sizes="(max-width: 768px) 100vw, 480px"
-              className="w-full h-auto object-contain drop-shadow-2xl"
+              className="object-contain drop-shadow-2xl"
             />
           </div>
         </div>
