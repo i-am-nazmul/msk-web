@@ -160,12 +160,13 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center">
           <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, '#contact')}
+            href="https://msk.investwell.app/app/#/login"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[15px] font-semibold text-white bg-[var(--color-navy)] px-5 py-2.5 rounded-lg hover:bg-[var(--color-navy-mid)] transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-px active:translate-y-0"
-            id="nav-book-consultation-btn"
+            id="nav-login-btn"
           >
-            Book a Consultation
+            Login
           </a>
         </div>
 
@@ -240,12 +241,13 @@ export default function Navbar() {
           </div>
         ))}
         <a
-          href="#contact"
-          onClick={(e) => handleNavClick(e, '#contact')}
+          href="https://msk.investwell.app/app/#/login"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-5 text-center text-base font-semibold text-white bg-[var(--color-navy)] px-5 py-3 rounded-lg"
-          id="mobile-book-consultation-btn"
+          id="mobile-login-btn"
         >
-          Book a Consultation
+          Login
         </a>
       </div>
     </>

@@ -109,7 +109,7 @@ const Hero4 = () => {
           {/* Image */}
           <motion.div 
             ref={imageRef}
-            className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-lg mb-12 origin-center aspect-[16/9]"
+            className="w-full max-w-5xl mx-auto mb-12 origin-center"
             style={{ 
               scale: imageScale,
               opacity: imageOpacity
@@ -117,10 +117,12 @@ const Hero4 = () => {
           >
             <Image 
               src="/hero_section_4_pic.png"
-              fill
+              width={1920}
+              height={1080}
               sizes="(max-width: 1024px) 100vw, 1024px"
               alt="Disciplined investment approach"
-              className="object-contain"
+              style={{ width: '100%', height: 'auto' }}
+              className="rounded-3xl shadow-lg"
               priority
             />
           </motion.div>
@@ -142,7 +144,7 @@ const Hero4 = () => {
                 
                 {/* Number + Icon row */}
                 <div className="relative flex items-center justify-between mb-5">
-                  <span className="text-5xl font-sans font-extrabold text-violet-500/[0.15] leading-none select-none transition-colors duration-300 group-hover:text-violet-500/30">
+                  <span className="text-5xl font-sans font-extrabold text-violet-800/80 leading-none select-none transition-colors duration-300 group-hover:text-violet-900">
                     {feature.number}
                   </span>
                   <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-[#0A192F] to-[#1a3260] flex items-center justify-center text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300">

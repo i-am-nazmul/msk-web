@@ -131,7 +131,7 @@ const Hero3 = () => {
               <span className="text-[#F29F05] font-semibold tracking-wider text-sm uppercase">Our Solutions</span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-[54px] font-sans font-bold text-[#374151] leading-tight mb-6">
-              A Complete Approach to Your Wealth.
+              <span className="text-[#F29F05]">A Complete Approach</span> to Your Wealth.
             </h2>
             <p className="text-gray-600 text-lg md:text-xl max-w-3xl">
               From your first investment to your retirement years, our solutions are designed to help you build, protect and pass on what matters most.
