@@ -21,7 +21,6 @@ const Hero2 = () => {
         <div className="flex flex-col space-y-8">
           <div>
             <div className="flex items-center space-x-4 mb-4">
-              <div className="w-8 h-[2px] bg-[#F29F05]"></div>
               <span className="text-[#F29F05] font-semibold tracking-wider text-sm uppercase">More Than Investments</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-[#0A192F] leading-tight mb-6">
@@ -35,7 +34,6 @@ const Hero2 = () => {
           </div>
 
           <div className="pt-8">
-            <div className="w-8 h-[2px] bg-[#F29F05] mb-4"></div>
             <h2 className="text-2xl md:text-3xl font-sans font-bold text-[#0A192F] mb-4">
               One Strategy. Multiple Goals.
             </h2>

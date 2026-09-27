@@ -61,8 +61,20 @@ const carouselFeatures = [...features, ...features];
 
 const Hero9 = () => {
   return (
-    <div className="w-full bg-white px-4 sm:px-6 lg:px-8 pb-12 lg:pb-24">
+    <div className="w-full bg-white px-4 sm:px-6 lg:px-8 pb-12 lg:pb-24 pt-4">
       <div className="max-w-[93.75rem] mx-auto">
+        
+        <div className="text-center mb-10 lg:mb-14">
+          <motion.h2 
+            className="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight font-sans font-bold text-[#0A192F]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Why <span className="text-[#F29F05]">MSK?</span>
+          </motion.h2>
+        </div>
+
         <section id="why-msk" className="w-full relative py-20 lg:py-28 overflow-hidden bg-[#F9FAFB] rounded-[2.5rem] lg:rounded-[4rem] shadow-xl">
           {/* Background Image */}
           <div className="absolute inset-0">
@@ -86,21 +98,8 @@ const Hero9 = () => {
           <div className="flex flex-col justify-between order-1 lg:order-2 lg:col-start-2 lg:row-start-1">
             {/* Top content */}
             <div className="flex flex-col items-end text-right">
-              <motion.div
-                className="flex items-center space-x-3 mb-6"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="text-black font-bold tracking-wider text-sm uppercase">
-                  Why MSK
-                </span>
-                <div className="w-8 h-[2px] bg-[#F29F05]" />
-              </motion.div>
-
               <motion.h2
-                className="text-4xl md:text-5xl lg:text-[3.25rem] font-sans font-bold text-black leading-[1.12] mb-6 tracking-tight drop-shadow-sm"
+                className="text-right text-5xl md:text-6xl lg:text-[4.5rem] font-sans font-bold text-black leading-[1.1] mb-8 tracking-tight drop-shadow-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -114,7 +113,7 @@ const Hero9 = () => {
               </motion.h2>
 
               <motion.p
-                className="text-black/90 text-lg leading-relaxed max-w-xl mb-8 font-medium drop-shadow-sm ml-auto"
+                className="text-right text-black/90 text-xl md:text-2xl leading-relaxed max-w-[26rem] mb-8 font-medium drop-shadow-sm ml-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -130,75 +129,7 @@ const Hero9 = () => {
 
           </div>
 
-          {/* ── Feature Cards Column (Now on Left on Desktop) ── */}
-          <div className="flex flex-col gap-5 lg:pr-6 order-2 lg:order-1 lg:col-start-1 lg:row-start-1">
-            {/* Feature cards Carousel */}
-            <div className="relative w-full overflow-hidden flex py-2">
-              
-              <motion.div
-                className="flex gap-5"
-                animate={{ 
-                  x: ["0%", "0%", "-12.5%", "-12.5%", "-25%", "-25%", "-37.5%", "-37.5%", "-50%"] 
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 10,
-                  times: [0, 0.2, 0.25, 0.45, 0.5, 0.7, 0.75, 0.95, 1],
-                  ease: "easeInOut"
-                }}
-              >
-                {carouselFeatures.map((feature, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative bg-white/90 backdrop-blur-md rounded-2xl p-7 border border-white overflow-hidden cursor-pointer hover:border-[#F29F05]/40 transition-colors duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.06)] w-[17.5rem] sm:w-[20rem] shrink-0"
-                  >
-                    {/* Icon */}
-                    <div className="w-14 h-14 rounded-xl bg-[#FFF8EB] border border-[#F29F05]/20 flex items-center justify-center text-[#F29F05] mb-5 group-hover:bg-[#F29F05] group-hover:text-white group-hover:scale-110 group-hover:rotate-[-4deg] transition-all duration-300 shadow-sm">
-                      {feature.icon}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-lg font-sans font-bold text-black mb-2 transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-sm text-black/80 leading-relaxed mb-4">
-                      {feature.desc}
-                    </p>
-
-                    {/* Bottom accent */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[0.1875rem] bg-gradient-to-r from-[#F29F05] to-[#ffd166] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.div
-              className="relative bg-white/90 backdrop-blur-md rounded-2xl p-8 border border-white shadow-[0_8px_30px_rgba(0,0,0,0.06)] mt-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              {/* Decorative quote mark */}
-              <svg className="absolute top-5 left-6 w-10 h-10 text-[#F29F05]/20" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z" />
-              </svg>
-              <blockquote className="relative pl-4 pt-4">
-                <p className="text-black text-lg md:text-xl font-serif italic leading-relaxed mb-4 drop-shadow-sm">
-                  &ldquo;Our success is measured by the trust our clients place in us
-                  and the financial progress they make.&rdquo;
-                </p>
-                <footer className="flex items-center gap-3">
-                  <div className="w-8 h-[2px] bg-[#F29F05]" />
-                  <cite className="not-italic text-sm font-bold text-black tracking-wider uppercase">
-                    MSK Investment Services
-                  </cite>
-                </footer>
-              </blockquote>
-            </motion.div>
-          </div>
+          {/* ── Left Side Intentionally Empty to Showcase Background ── */}
         </div>
       </div>
         </section>

@@ -59,9 +59,7 @@ const Hero7 = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="w-8 h-[2px] bg-[#F29F05]"></div>
             <span className="text-[#F29F05] font-bold tracking-wider text-sm uppercase">ABOUT US</span>
-            <div className="w-8 h-[2px] bg-[#F29F05]"></div>
           </motion.div>
           
           <motion.h2 

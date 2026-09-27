@@ -29,9 +29,7 @@ const Hero4 = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-8 h-[2px] bg-[#F29F05]"></div>
             <span className="text-[#F29F05] font-semibold tracking-wider text-sm uppercase">Our Investment Philosophy</span>
-            <div className="w-8 h-[2px] bg-[#F29F05]"></div>
           </motion.div>
           
           <motion.h2 

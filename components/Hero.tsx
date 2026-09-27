@@ -59,7 +59,6 @@ export default function Hero() {
         <div className="flex flex-col">
           {/* Eyebrow tag */}
           <div className="inline-flex items-center gap-2 mb-3 animate-[fadeInUp_0.6s_ease_both]">
-            <span className="block w-6 h-[2px] bg-[var(--color-gold)]" />
             <span className="text-[0.6875rem] lg:text-[0.75rem] font-bold tracking-[0.15em] uppercase text-[var(--color-gold)]">
               Invest with Clarity. Grow with Confidence.
             </span>

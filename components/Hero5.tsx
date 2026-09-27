@@ -84,9 +84,7 @@ const Hero5 = () => {
           <div className="flex flex-col space-y-6 lg:pl-8 text-center items-center">
             <div className="flex flex-col items-center">
               <div className="flex items-center space-x-4 mb-4 justify-center w-full">
-                <div className="w-8 h-[2px] bg-[#F29F05]"></div>
                 <span className="text-[#F29F05] font-semibold tracking-wider text-sm uppercase">Digital Experience</span>
-                <div className="w-8 h-[2px] bg-[#F29F05]"></div>
               </div>
               
               <h2 className="text-4xl md:text-5xl lg:text-5xl font-sans font-bold text-[#0A192F] leading-[1.2] mb-6">
