@@ -99,7 +99,7 @@ const Hero8 = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            See what our clients have to say about their journey to financial freedom with MSK.
+            Every story reflects a relationship built on trust.
           </motion.p>
         </div>
       </div>
