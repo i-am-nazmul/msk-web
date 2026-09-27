@@ -101,6 +101,26 @@ export default function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
+            <a
+              href="https://msk.investwell.app/app/#/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 bg-white text-[var(--color-navy)] border-2 border-[var(--color-navy)] text-[0.95rem] font-semibold px-6 py-3 rounded-lg shadow-[0_4px_16px_rgba(10,22,40,0.05)] hover:bg-[var(--color-navy)] hover:text-white hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(10,22,40,0.15)] active:translate-y-0 transition-all duration-200 cursor-pointer"
+            >
+              Login to App
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="group-hover:translate-x-0.5 transition-transform duration-200"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
 
 
           </div>

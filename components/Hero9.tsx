@@ -91,7 +91,6 @@ const Hero9 = () => {
             <span className="text-black">around you is different.</span>
           </motion.h3>
         </div>
-
         <section id="why-msk" className="w-full relative h-[20rem] sm:h-[24rem] lg:h-auto lg:py-20 overflow-hidden bg-[#F9FAFB] rounded-[2.5rem] lg:rounded-[4rem] shadow-xl">
           {/* Background Image */}
           <div className="absolute inset-0">
@@ -126,28 +125,16 @@ const Hero9 = () => {
                     <br />
                     <span className="text-black">around you is different.</span>
                   </motion.h2>
-
-                  <motion.p
-                    className="text-right text-black/90 text-xl leading-relaxed max-w-[21rem] mb-8 font-medium drop-shadow-sm ml-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
-                    At MSK, we go beyond products and transactions. We take the
-                    time to understand your goals, build a personalised strategy,
-                    and stay with you at every step of your financial journey.
-                  </motion.p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── Mobile-Only Paragraph (Below Image) ── */}
-        <div className="lg:hidden text-center mt-8 px-4">
+        {/* Text Below the Image Section (Paragraph & Script Text) */}
+        <div className="text-center mt-8 px-4">
           <motion.p
-            className="text-black/90 text-sm sm:text-base leading-relaxed max-w-md mx-auto font-medium"
+            className="text-black/90 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto font-medium mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -159,7 +146,6 @@ const Hero9 = () => {
           </motion.p>
         </div>
 
-        {/* Text Below the Image Section */}
         <motion.div
           className="mt-12 text-center"
           initial={{ opacity: 0, y: 30 }}
