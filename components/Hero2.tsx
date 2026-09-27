@@ -13,7 +13,7 @@ const circleImages = [
 const Hero2 = () => {
   return (
     <section 
-      className="w-full relative min-h-[800px] flex items-center bg-white overflow-hidden py-16"
+      className="w-full relative flex items-center bg-white overflow-hidden py-8"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
@@ -46,12 +46,12 @@ const Hero2 = () => {
         </div>
 
         {/* Right Content - Concentric Circles */}
-        <div className="relative w-full h-full hidden lg:flex items-center justify-center min-h-[400px]">
-          <div className="relative flex items-center justify-center w-[400px] h-[400px]">
+        <div className="relative w-full h-full hidden lg:flex items-center justify-center min-h-[25rem]">
+          <div className="relative flex items-center justify-center w-[25rem] h-[25rem]">
             {/* Outer Circle (2r) */}
             <div className="absolute inset-0 rounded-full border-[2px] border-gray-200"></div>
             {/* Inner Circle (r) with Logo */}
-            <div className="absolute w-[150px] h-[150px] rounded-full border-[2px] border-[#F29F05] bg-white z-0 flex items-center justify-center shadow-sm">
+            <div className="absolute w-[9.375rem] h-[9.375rem] rounded-full border-[2px] border-[#F29F05] bg-white z-0 flex items-center justify-center shadow-sm">
               <Image 
                 src="/MSK Logo Symbol.png" 
                 alt="MSK Symbol" 
@@ -74,7 +74,7 @@ const Hero2 = () => {
                       transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-200px) rotate(-${angle}deg)`,
                     }}
                   >
-                    <div className="relative w-[176px] h-[176px] z-10 animate-[spin_40s_linear_infinite_reverse] flex items-center justify-center transition-transform hover:scale-110 duration-300">
+                    <div className="relative w-[11rem] h-[11rem] z-10 animate-[spin_40s_linear_infinite_reverse] flex items-center justify-center transition-transform hover:scale-110 duration-300">
                       <Image 
                         src={`/hero_section_2_pics/${img}`}
                         alt={img.replace('.png', '').replace(/_/g, ' ')}

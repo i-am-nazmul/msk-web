@@ -77,7 +77,7 @@ const bannerFeatures = [
 const Hero5 = () => {
   return (
     <section id="digital-services" className="w-full relative bg-[#F9FAFB] pt-20 pb-16 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div className="max-w-[87.5rem] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
           {/* Left Content */}
@@ -94,12 +94,12 @@ const Hero5 = () => {
                 <span className="text-[#F29F05]">Always Within Reach.</span>
               </h2>
               
-              <p className="text-gray-700 text-lg max-w-[540px] mb-8 leading-relaxed mx-auto">
+              <p className="text-gray-700 text-lg max-w-[33.75rem] mb-8 leading-relaxed mx-auto">
                 Track your investments, stay informed and connect with your financial advisor through a seamless digital experience designed around you.
               </p>
               
               {/* Features Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 w-full max-w-[600px] mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 w-full max-w-[37.5rem] mx-auto">
                 {features.map((f, i) => (
                   <motion.div 
                     key={i} 
@@ -130,7 +130,7 @@ const Hero5 = () => {
             <motion.img 
               src="/hero_section_5_pic.png" 
               alt="MSK App Digital Experience" 
-              className="w-full h-auto rounded-[32px] shadow-xl"
+              className="w-full h-auto rounded-[2rem] shadow-xl"
               initial={{ opacity: 0, scale: 0.85 }}
               whileInView={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.08, rotate: -2, y: -10 }}
@@ -162,7 +162,7 @@ const Hero5 = () => {
               <Link href="https://play.google.com/store/apps/details?id=com.iw.mint.app" target="_blank" rel="noopener noreferrer" className="bg-black text-white rounded-md px-4 py-2 flex items-center gap-2 hover:bg-gray-800 transition-colors">
                 <svg viewBox="0 0 512 512" className="w-6 h-6 fill-current"><path d="M99.617 8.057a50.191 50.191 0 00-38.815-1.639 50.127 50.127 0 00-26.88 44.636v409.893a50.127 50.127 0 0026.88 44.636 50.19 50.19 0 0038.815-1.639l355.679-204.946a50.134 50.134 0 000-86.994L99.617 8.057zM76.994 65.467c0-2.35 1.134-4.524 3.033-5.817 1.898-1.294 4.314-1.528 6.425-.623l259.08 149.278L76.994 360.771V65.467zm0 381.066V220.151l247.925 125.66-244.466 140.852c-2.11.89-4.512.645-6.4-.645-1.89-1.29-3.023-3.466-3.023-5.816zm279.79-158.423l59.57-30.187c3.152-1.597 3.152-5.748 0-7.345l-59.57-30.187-133.048-76.666 266.19 153.366-133.142 76.685z"/></svg>
                 <div className="flex flex-col items-start leading-none">
-                  <span className="text-[10px] uppercase font-semibold">GET IT ON</span>
+                  <span className="text-[0.625rem] uppercase font-semibold">GET IT ON</span>
                   <span className="text-sm font-bold">Google Play</span>
                 </div>
               </Link>

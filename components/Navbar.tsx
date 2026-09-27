@@ -17,6 +17,7 @@ const NAV_LINKS: NavLink[] = [
   { label: 'Who We Serve', href: '#who-we-serve' },
   { label: 'About Us', href: '#about' },
   { label: 'Why MSK', href: '#why-msk' },
+  { label: 'Reviews', href: '#reviews' },
   { label: 'Contact Us', href: '#contact' },
 ];
 
@@ -68,7 +69,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[1000] px-5 md:px-8 lg:px-12 h-[72px] flex items-center justify-between transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[1000] px-5 md:px-8 lg:px-12 h-[4.5rem] flex items-center justify-between transition-all duration-300 ${
           scrolled
             ? 'bg-white shadow-[0_2px_16px_rgba(0,0,0,0.08)]'
             : 'bg-white border-b border-gray-100'
@@ -102,7 +103,7 @@ export default function Navbar() {
                     onClick={() =>
                       setOpenDropdown(openDropdown === link.label ? null : link.label)
                     }
-                    className="flex items-center gap-1 text-[15px] font-medium text-[#1a2340] px-3 py-2 rounded-md hover:text-[var(--color-gold)] hover:bg-gray-50 transition-all duration-200"
+                    className="flex items-center gap-1 text-[0.9375rem] font-medium text-[#1a2340] px-3 py-2 rounded-md hover:text-[var(--color-gold)] hover:bg-gray-50 transition-all duration-200"
                     aria-haspopup="true"
                     aria-expanded={openDropdown === link.label}
                     id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
@@ -135,7 +136,7 @@ export default function Navbar() {
                           key={child.label}
                           href={child.href}
                           onClick={(e) => handleNavClick(e, child.href)}
-                          className="block px-4 py-2.5 text-[15px] font-medium text-[#1a2340] hover:text-[var(--color-gold)] hover:bg-orange-50 transition-all duration-150"
+                          className="block px-4 py-2.5 text-[0.9375rem] font-medium text-[#1a2340] hover:text-[var(--color-gold)] hover:bg-orange-50 transition-all duration-150"
                         >
                           {child.label}
                         </a>
@@ -147,7 +148,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-[15px] font-medium text-[#1a2340] px-3 py-2 rounded-md hover:text-[var(--color-gold)] hover:bg-gray-50 transition-all duration-200 block relative after:content-[''] after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px] after:bg-[var(--color-gold)] after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100"
+                  className="text-[0.9375rem] font-medium text-[#1a2340] px-3 py-2 rounded-md hover:text-[var(--color-gold)] hover:bg-gray-50 transition-all duration-200 block relative after:content-[''] after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px] after:bg-[var(--color-gold)] after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100"
                   id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   {link.label}
@@ -163,7 +164,7 @@ export default function Navbar() {
             href="https://msk.investwell.app/app/#/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[15px] font-semibold text-white bg-[var(--color-navy)] px-5 py-2.5 rounded-lg hover:bg-[var(--color-navy-mid)] transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-px active:translate-y-0"
+            className="text-[0.9375rem] font-semibold text-white bg-[var(--color-navy)] px-5 py-2.5 rounded-lg hover:bg-[var(--color-navy-mid)] transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-px active:translate-y-0"
             id="nav-login-btn"
           >
             Login
@@ -172,7 +173,7 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          className="flex lg:hidden flex-col gap-[5px] w-8 h-8 cursor-pointer items-center justify-center"
+          className="flex lg:hidden flex-col gap-[0.3125rem] w-8 h-8 cursor-pointer items-center justify-center"
           onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
@@ -180,7 +181,7 @@ export default function Navbar() {
         >
           <span
             className={`block w-5 h-[2px] bg-[var(--color-navy)] rounded-full transition-transform duration-300 ${
-              mobileOpen ? 'translate-y-[7px] rotate-45' : ''
+              mobileOpen ? 'translate-y-[0.4375rem] rotate-45' : ''
             }`}
           />
           <span
@@ -190,7 +191,7 @@ export default function Navbar() {
           />
           <span
             className={`block w-5 h-[2px] bg-[var(--color-navy)] rounded-full transition-transform duration-300 ${
-              mobileOpen ? '-translate-y-[7px] -rotate-45' : ''
+              mobileOpen ? '-translate-y-[0.4375rem] -rotate-45' : ''
             }`}
           />
         </button>
@@ -200,7 +201,7 @@ export default function Navbar() {
       <div
         className={`${
           mobileOpen ? 'flex' : 'hidden'
-        } flex-col fixed top-[72px] left-0 right-0 bg-white shadow-lg pt-4 px-5 pb-8 z-[999] border-t border-gray-100 max-h-[80vh] overflow-y-auto`}
+        } flex-col fixed top-[4.5rem] left-0 right-0 bg-white shadow-lg pt-4 px-5 pb-8 z-[999] border-t border-gray-100 max-h-[80vh] overflow-y-auto`}
         role="dialog"
         aria-label="Mobile navigation"
       >

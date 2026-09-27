@@ -28,7 +28,7 @@ const PhoneIcon = () => (
   </svg>
 );
 const WhatsAppIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true" className="w-[34px] h-[34px] fill-current">
+  <svg viewBox="0 0 24 24" aria-hidden="true" className="w-[2.125rem] h-[2.125rem] fill-current">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.109.548 4.09 1.508 5.811L0 24l6.341-1.485A11.949 11.949 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.782 9.782 0 0 1-5.03-1.393l-.36-.214-3.764.882.924-3.653-.234-.375A9.773 9.773 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z" />
   </svg>
@@ -41,12 +41,12 @@ export default function Footer() {
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent" aria-hidden="true" />
 
       {/* Decorative glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gradient-to-b from-[var(--color-gold)]/[0.04] to-transparent blur-3xl" aria-hidden="true" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[37.5rem] h-[12.5rem] bg-gradient-to-b from-[var(--color-gold)]/[0.04] to-transparent blur-3xl" aria-hidden="true" />
 
-      <div className="pt-16 md:pt-20 pb-8 max-w-[1280px] w-full mx-auto px-5 md:px-[5vw] lg:px-[60px] relative z-10">
+      <div className="pt-16 md:pt-20 pb-8 max-w-[80rem] w-full mx-auto px-5 md:px-[5vw] lg:px-[3.75rem] relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 border-b border-gray-100 pb-12">
           {/* Brand */}
-          <div className="flex flex-col gap-5 max-w-[400px]">
+          <div className="flex flex-col gap-5 max-w-[25rem]">
             <Image
               src="/img/msk-logo.png"
               alt="MSK Investment Services"
@@ -83,7 +83,7 @@ export default function Footer() {
             <div className="text-[#0A192F] font-bold tracking-[0.1em] uppercase mb-6 text-sm">Contact Us</div>
             <div className="flex flex-col gap-5 mb-8">
               <div className="flex items-start gap-4 group transition-all duration-300">
-                <div className="flex-shrink-0 w-[22px] h-[22px] mt-1 transition-transform duration-300 group-hover:scale-110"><MapIcon /></div>
+                <div className="flex-shrink-0 w-[1.375rem] h-[1.375rem] mt-1 transition-transform duration-300 group-hover:scale-110"><MapIcon /></div>
                 <a
                   href="https://maps.app.goo.gl/39RG7wW5o6UHasR6A"
                   target="_blank"
@@ -96,13 +96,13 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex items-start gap-4 group transition-all duration-300">
-                <div className="flex-shrink-0 w-[22px] h-[22px] mt-1 transition-transform duration-300 group-hover:scale-110"><MailIcon /></div>
+                <div className="flex-shrink-0 w-[1.375rem] h-[1.375rem] mt-1 transition-transform duration-300 group-hover:scale-110"><MailIcon /></div>
                 <a href="mailto:info@mskinvestmentservices.com" className="text-[0.95rem] text-gray-600 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-navy)] no-underline">
                   info@mskinvestmentservices.com
                 </a>
               </div>
               <div className="flex items-start gap-4 group transition-all duration-300">
-                <div className="flex-shrink-0 w-[22px] h-[22px] mt-1 transition-transform duration-300 group-hover:scale-110"><PhoneIcon /></div>
+                <div className="flex-shrink-0 w-[1.375rem] h-[1.375rem] mt-1 transition-transform duration-300 group-hover:scale-110"><PhoneIcon /></div>
                 <a href="tel:+919884660060" className="text-[0.95rem] text-gray-600 leading-[1.7] transition-colors duration-300 hover:text-[var(--color-navy)] no-underline">
                   +91 98846 60060
                 </a>
@@ -110,7 +110,7 @@ export default function Footer() {
             </div>
 
             {/* Map */}
-            <div className="w-full max-w-[340px] h-[160px] rounded-xl overflow-hidden border border-gray-100 mt-2 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+            <div className="w-full max-w-[21.25rem] h-[10rem] rounded-xl overflow-hidden border border-gray-100 mt-2 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
               <iframe
                 title="MSK Investment Services location map"
                 loading="lazy"

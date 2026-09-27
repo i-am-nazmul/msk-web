@@ -105,7 +105,7 @@ const SolutionCard = ({ title, description, image, icon }: { title: string, desc
         <h3 className="text-xl font-sans text-[#0A192F] font-bold mb-1 leading-tight pr-4 whitespace-pre-line">
           {title.replace(" ", "\n")}
         </h3>
-        <p className="text-sm font-sans font-semibold text-gray-700 max-w-[200px] leading-snug">
+        <p className="text-sm font-sans font-semibold text-gray-700 max-w-[12.5rem] leading-snug">
           {description}
         </p>
       </div>
@@ -130,7 +130,7 @@ const Hero3 = () => {
             <div className="flex items-center space-x-4 mb-4">
               <span className="text-[#F29F05] font-semibold tracking-wider text-sm uppercase">Our Solutions</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-sans font-bold text-[#374151] leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.375rem] font-sans font-bold text-[#374151] leading-tight mb-6">
               <span className="text-[#F29F05]">A Complete Approach</span> to Your Wealth.
             </h2>
             <p className="text-gray-600 text-lg md:text-xl max-w-3xl">

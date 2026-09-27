@@ -42,17 +42,12 @@ const features = [
   }
 ];
 
-const stats = [
-  { value: "8+", label: "Years of Experience" },
-  { value: "₹ 80+ Crore", label: "Assets Under Guidance" },
-  { value: "500+", label: "Happy Clients" },
-  { value: "1", label: "Common Goal", subLabel: "Your Financial Well-being" }
-];
+
 
 const Hero7 = () => {
   return (
     <section id="about" className="w-full relative bg-white overflow-hidden border-t border-gray-100">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[87.5rem] mx-auto">
         
         {/* Main Content Area */}
         <div className="px-4 sm:px-6 lg:px-8 pt-20 lg:pt-28 pb-10 lg:pb-16 max-w-5xl mx-auto flex flex-col items-center text-center">
@@ -115,35 +110,7 @@ const Hero7 = () => {
 
       </div>
 
-      {/* Stats Bottom Bar */}
-      <div className="w-full bg-white border-t border-gray-100 py-10 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 w-full">
-              {stats.map((stat, i) => (
-                <motion.div 
-                  key={i}
-                  className="flex flex-col items-center text-center space-y-1 relative"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.8, delay: 0.2 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <span className="text-3xl md:text-4xl font-sans font-bold text-[#0A192F]">{stat.value}</span>
-                  <div className="flex flex-col">
-                    <span className="text-sm text-gray-500">{stat.label}</span>
-                    {stat.subLabel && <span className="text-sm text-gray-500">{stat.subLabel}</span>}
-                  </div>
-                  {/* Vertical Divider for all but last on md+ */}
-                  {i !== stats.length - 1 && (
-                    <div className="hidden md:block absolute right-[-2rem] top-1/2 -translate-y-1/2 w-[1px] h-12 bg-gray-200"></div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+
     </section>
   );
 };

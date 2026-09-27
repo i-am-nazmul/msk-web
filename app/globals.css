@@ -21,7 +21,19 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Fluid typography and layout scaling.
+       Assume 16px base at 1440px viewport (16 / 14.4 = 1.111vw). 
+       This perfectly shrinks down on 1280px/1366px laptops. */
+    font-size: clamp(12px, 1.111vw, 20px);
   }
+  
+  /* On mobile/tablet, revert to standard 16px so Tailwind responsive breakpoints work perfectly */
+  @media (max-width: 1023px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

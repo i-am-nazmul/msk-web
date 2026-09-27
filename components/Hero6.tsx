@@ -9,7 +9,7 @@ const servingOptions = [
     title: "HNI / Affluent Investors",
     desc: "A more personalised approach to managing substantial wealth.",
     image: "/hero_section_6_pics/affluent_investors.png",
-    imageOverlay: ["PRESERVE", "GROW", "CREATE", "LEGACIES"],
+    imageClass: "object-left",
     icon: (
       <svg className="w-7 h-7 text-[#0A192F]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M4.5 18l1.5-12 4.5 4.5L12 3l1.5 7.5L18 6l1.5 12H4.5z" />
@@ -25,7 +25,6 @@ const servingOptions = [
     title: "Individual Investors",
     desc: "Structured strategies for building wealth around your life goals.",
     image: "/hero_section_6_pics/individual_partners.png",
-    imageOverlay: ["BUILD", "PLAN", "ACHIEVE", "TOGETHER"],
     icon: (
       <svg className="w-7 h-7 text-[#0A192F]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
@@ -42,7 +41,6 @@ const servingOptions = [
     desc: "Stay connected to your financial strategy, wherever you are.",
     image: "/hero_section_6_pics/nri.png",
     imageClass: "object-[80%_center]",
-    imageOverlay: ["STAY", "CONNECTED", "INVEST", "GROW"],
     icon: (
       <svg className="w-7 h-7 text-[#0A192F]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.172 13.906l4.636 1.159m0 0l-1.393 4.178c-.287.863.666 1.545 1.341.961l2.483-2.146m0 0l5.801 1.45 3.39-10.168-10.168 3.39 1.45 5.801zm0 0l-5.801-1.45m0 0L2.013 7.828" />
@@ -59,7 +57,7 @@ const servingOptions = [
 const Hero6 = () => {
   return (
     <section id="who-we-serve" className="w-full relative bg-white py-24 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div className="max-w-[87.5rem] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         
         {/* Top Header */}
         <div className="flex flex-col items-center justify-center mb-16 text-center">
@@ -97,11 +95,11 @@ const Hero6 = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 perspective-1000">
+        <div className="max-w-[68.75rem] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 perspective-1000">
           {servingOptions.map((opt, i) => (
             <motion.div 
               key={i}
-              className={`bg-white rounded-[24px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col h-full group relative ${i === 1 ? 'z-20' : 'z-0'}`}
+              className={`bg-white rounded-[1.5rem] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col h-full group relative ${i === 1 ? 'z-20' : 'z-0'}`}
               initial={{ 
                 opacity: 0, 
                 y: 40
@@ -119,7 +117,7 @@ const Hero6 = () => {
               }}
             >
               {/* Top Image Section */}
-              <div className="relative h-[240px] w-full overflow-hidden">
+              <div className="relative h-[15rem] w-full overflow-hidden">
                 <Image 
                   src={opt.image} 
                   alt={opt.title} 
@@ -127,10 +125,6 @@ const Hero6 = () => {
                   className={`object-cover transition-transform duration-700 group-hover:scale-110 ${opt.imageClass || 'object-center'}`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent opacity-80"></div>
-                <div className="absolute top-6 left-6 flex flex-col text-white font-semibold text-xs tracking-[0.2em] space-y-1.5 z-10">
-                  {opt.imageOverlay.map(txt => <span key={txt} className="drop-shadow-md">{txt}</span>)}
-                </div>
               </div>
               
               {/* Content Section */}
