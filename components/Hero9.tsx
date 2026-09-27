@@ -66,73 +66,54 @@ const Hero9 = () => {
         
         <div className="text-center mb-10 lg:mb-14">
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight font-sans font-bold text-[#0A192F]"
+            className="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight font-sans font-bold text-[#0A192F] mb-8 lg:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             Why <span className="text-[#F29F05]">MSK?</span>
           </motion.h2>
+
+          <motion.h3
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-sans font-bold text-black leading-[1.1] mb-6 lg:mb-8 tracking-tight drop-shadow-sm max-w-[90%] mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <span className="text-[#F29F05]">Advice</span> is easy.{" "}
+            <br className="lg:hidden" />
+            A strategy built{" "}
+            <br className="hidden lg:block" />
+            <span className="text-black">around you is different.</span>
+          </motion.h3>
         </div>
 
-        <section id="why-msk" className="w-full relative py-20 lg:py-28 overflow-hidden bg-[#F9FAFB] rounded-[2.5rem] lg:rounded-[4rem] shadow-xl">
+        <section id="why-msk" className="w-full relative h-[25rem] sm:h-[30rem] lg:h-[40rem] overflow-hidden bg-[#F9FAFB] rounded-[2.5rem] lg:rounded-[4rem] shadow-xl">
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
               src="/hero_section_9.png"
               alt="Why MSK Background"
               fill
-              className="object-cover"
+              className="object-cover object-left lg:object-center"
               quality={90}
               priority
             />
-            {/* Soft radial glow only in the top-right to keep the rest of the image completely untouched */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_100%_0%,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] pointer-events-none" />
           </div>
-
-      {/* Main content area */}
-      <div className="max-w-[87.5rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-16 lg:mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-6">
-
-          {/* ── Text Content Column (Now on Right on Desktop) ── */}
-          <div className="flex flex-col justify-between order-1 lg:order-2 lg:col-start-2 lg:row-start-1">
-            {/* Top content */}
-            <div className="flex flex-col items-end text-right">
-              <motion.h2
-                className="text-right text-5xl md:text-6xl lg:text-[4.5rem] font-sans font-bold text-black leading-[1.1] mb-8 tracking-tight drop-shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <span className="text-[#F29F05]">Advice</span> is easy.{" "}
-                <br className="hidden sm:block" />
-                A strategy built{" "}
-                <br className="hidden sm:block" />
-                <span className="text-black">around you is different.</span>
-              </motion.h2>
-
-              <motion.p
-                className="text-right text-black/90 text-xl md:text-2xl leading-relaxed max-w-[26rem] mb-8 font-medium drop-shadow-sm ml-auto"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                At MSK, we go beyond products and transactions. We take the
-                time to understand your goals, build a personalised strategy,
-                and stay with you at every step of your financial journey.
-              </motion.p>
-
-            </div>
-
-
-          </div>
-
-          {/* ── Left Side Intentionally Empty to Showcase Background ── */}
-        </div>
-      </div>
         </section>
+
+        <motion.p
+          className="text-black/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto font-medium px-4 mt-8 lg:mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          At MSK, we go beyond products and transactions. We take the
+          time to understand your goals, build a personalised strategy,
+          and stay with you at every step of your financial journey.
+        </motion.p>
 
         {/* Text Below the Image Section */}
         <motion.div
