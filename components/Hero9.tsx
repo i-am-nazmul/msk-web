@@ -61,7 +61,7 @@ const carouselFeatures = [...features, ...features];
 
 const Hero9 = () => {
   return (
-    <div className="w-full bg-white px-4 sm:px-6 lg:px-8 pb-12 lg:pb-24 pt-4">
+    <div className="w-full bg-white px-4 sm:px-6 lg:px-8 pb-4 pt-4">
       <div className="max-w-[75rem] mx-auto">
         
         <div className="text-center mb-10 lg:mb-14">

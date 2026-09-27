@@ -77,7 +77,7 @@ Please get in touch with me.`;
   };
 
   return (
-    <div className="w-full bg-white py-12 lg:py-24">
+    <div className="w-full bg-white pb-12 lg:pb-24 pt-4 lg:pt-8">
       <div className="max-w-[93.75rem] mx-auto px-4 sm:px-6 lg:px-8">
         <section id="contact" className="w-full relative py-20 lg:py-28 rounded-[2.5rem] lg:rounded-[4rem] overflow-hidden bg-[#F9FAFB] shadow-[0_8px_40px_rgba(0,0,0,0.04)] border border-gray-100">
 
