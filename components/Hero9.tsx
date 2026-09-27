@@ -62,34 +62,37 @@ const carouselFeatures = [...features, ...features];
 const Hero9 = () => {
   return (
     <div className="w-full bg-white px-4 sm:px-6 lg:px-8 pb-12 lg:pb-24 pt-4">
-      <div className="max-w-[93.75rem] mx-auto">
+      <div className="max-w-[75rem] mx-auto">
         
         <div className="text-center mb-10 lg:mb-14">
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight font-sans font-bold text-[#0A192F] mb-8 lg:mb-12"
+            className="text-3xl md:text-4xl lg:text-[2.8rem] leading-tight font-sans font-bold text-[#0A192F] mb-8 lg:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             Why <span className="text-[#F29F05]">MSK?</span>
           </motion.h2>
+        </div>
 
+        {/* ── Mobile-Only Heading (Above Image) ── */}
+        <div className="lg:hidden text-center mb-8 px-4">
           <motion.h3
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-sans font-bold text-black leading-[1.1] mb-6 lg:mb-8 tracking-tight drop-shadow-sm max-w-[90%] mx-auto"
+            className="text-3xl sm:text-4xl font-sans font-bold text-black leading-[1.1] mb-6 tracking-tight drop-shadow-sm max-w-[90%] mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="text-[#F29F05]">Advice</span> is easy.{" "}
-            <br className="lg:hidden" />
+            <br />
             A strategy built{" "}
-            <br className="hidden lg:block" />
+            <br />
             <span className="text-black">around you is different.</span>
           </motion.h3>
         </div>
 
-        <section id="why-msk" className="w-full relative h-[25rem] sm:h-[30rem] lg:h-[40rem] overflow-hidden bg-[#F9FAFB] rounded-[2.5rem] lg:rounded-[4rem] shadow-xl">
+        <section id="why-msk" className="w-full relative h-[20rem] sm:h-[24rem] lg:h-auto lg:py-20 overflow-hidden bg-[#F9FAFB] rounded-[2.5rem] lg:rounded-[4rem] shadow-xl">
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
@@ -100,20 +103,61 @@ const Hero9 = () => {
               quality={90}
               priority
             />
+            {/* Soft radial glow only in the top-right to keep the rest of the image completely untouched */}
+            <div className="hidden lg:block absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_100%_0%,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] pointer-events-none" />
+          </div>
+
+          {/* Main content area (Desktop Only) */}
+          <div className="hidden lg:block max-w-[70rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-16 lg:mb-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-6">
+              {/* ── Text Content Column ── */}
+              <div className="flex flex-col justify-between order-1 lg:order-2 lg:col-start-2 lg:row-start-1">
+                <div className="flex flex-col items-end text-right">
+                  <motion.h2
+                    className="text-right text-5xl lg:text-[3.6rem] font-sans font-bold text-black leading-[1.1] mb-8 tracking-tight drop-shadow-sm"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                  >
+                    <span className="text-[#F29F05]">Advice</span> is easy.{" "}
+                    <br />
+                    A strategy built{" "}
+                    <br />
+                    <span className="text-black">around you is different.</span>
+                  </motion.h2>
+
+                  <motion.p
+                    className="text-right text-black/90 text-xl leading-relaxed max-w-[21rem] mb-8 font-medium drop-shadow-sm ml-auto"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    At MSK, we go beyond products and transactions. We take the
+                    time to understand your goals, build a personalised strategy,
+                    and stay with you at every step of your financial journey.
+                  </motion.p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <motion.p
-          className="text-black/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto font-medium px-4 mt-8 lg:mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          At MSK, we go beyond products and transactions. We take the
-          time to understand your goals, build a personalised strategy,
-          and stay with you at every step of your financial journey.
-        </motion.p>
+        {/* ── Mobile-Only Paragraph (Below Image) ── */}
+        <div className="lg:hidden text-center mt-8 px-4">
+          <motion.p
+            className="text-black/90 text-sm sm:text-base leading-relaxed max-w-md mx-auto font-medium"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            At MSK, we go beyond products and transactions. We take the
+            time to understand your goals, build a personalised strategy,
+            and stay with you at every step of your financial journey.
+          </motion.p>
+        </div>
 
         {/* Text Below the Image Section */}
         <motion.div
@@ -124,7 +168,7 @@ const Hero9 = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <motion.p
-            className="font-script text-black text-4xl md:text-5xl leading-snug italic"
+            className="font-script text-black text-3xl md:text-4xl leading-snug italic"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

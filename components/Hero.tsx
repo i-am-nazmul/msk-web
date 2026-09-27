@@ -83,7 +83,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4 mb-8 animate-[fadeInUp_0.7s_ease_0.3s_both]">
             <button
               onClick={scrollTo('#contact')}
-              className="group inline-flex items-center gap-2 bg-[var(--color-navy)] text-white text-[0.95rem] font-semibold px-6 py-3 rounded-lg shadow-[0_4px_16px_rgba(10,22,40,0.25)] hover:bg-[var(--color-navy-mid)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(10,22,40,0.3)] active:translate-y-0 transition-all duration-200"
+              className="group inline-flex items-center gap-2 bg-[var(--color-navy)] text-white text-[0.95rem] font-semibold px-6 py-3 rounded-lg shadow-[0_4px_16px_rgba(10,22,40,0.25)] hover:bg-[var(--color-navy-mid)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(10,22,40,0.3)] active:translate-y-0 transition-all duration-200 cursor-pointer"
               id="hero-consultation-btn"
               aria-label="Book your wealth consultation"
             >

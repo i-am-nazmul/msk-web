@@ -264,7 +264,7 @@ Please get in touch with me.`;
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-[#F29F05] text-[#0A192F] font-bold text-sm flex items-center justify-center gap-2 hover:bg-[#ffb327] active:scale-[0.98] transition-all duration-200 shadow-[0_4px_16px_rgba(242,159,5,0.3)] mt-2"
+                className="w-full py-3.5 rounded-xl bg-[#F29F05] text-[#0A192F] font-bold text-sm flex items-center justify-center gap-2 hover:bg-[#ffb327] active:scale-[0.98] transition-all duration-200 shadow-[0_4px_16px_rgba(242,159,5,0.3)] mt-2 cursor-pointer"
               >
                 Request a Personal Consultation
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
